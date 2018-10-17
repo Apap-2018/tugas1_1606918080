@@ -10,25 +10,42 @@
 
 <div class="container-fluid">
     <h2>Tambah Jabatan</h2>
+
     <form th:action="@{/jabatan/tambah}" th:object=${jabatan} method="POST">
-        <table>
-            <tr>
-                <td>Nama</td>
-                <td><input type="text" name="nama" class="form-control"/></td>
-            </tr>
-            <tr>
-                <td>Deskripsi</td>
-                <td><input type="text" name="deskripsi" class="form-control"/></td>
-            </tr>
-            <tr>
-                <td>Gaji Pokok</td>
-                <td><input type="number" name="gajiPokok" class="form-control"/></td>
-            </tr>
-            <tr>
-                <td><button type="submit" class="btn btn-primary">Tambah</button><td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="input-nama">Nama</label>
+            <input id="input-nama" type="text" name="nama" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="input-deskripsi">Deskripsi</label>
+            <input type="text" name="deskripsi" class="form-control" id="input-deskripsi"/>
+        </div>
+        <div class="form-group">
+            <label for="input-gajiPokok">Gaji Pokok</label>
+            <input type="number" name="gajiPokok" class="form-control" id="input-gajiPokok"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Tambah</button>
     </form>
+
+    <!--<form th:action="@{/jabatan/tambah}" th:object=${jabatan} method="POST">-->
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>Nama</td>-->
+                <!--<td><input type="text" name="nama" class="form-control"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Deskripsi</td>-->
+                <!--<td><input type="text" name="deskripsi" class="form-control"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>Gaji Pokok</td>-->
+                <!--<td><input type="number" name="gajiPokok" class="form-control"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td><button type="submit" class="btn btn-primary">Tambah</button><td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</form>-->
 </div>
 </body>
 </html>
