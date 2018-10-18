@@ -23,16 +23,16 @@
     <nav th:replace="fragments/fragment :: navbar"></nav>
 
     <div class="container-fluid">
-        <h2>Selamat datang di Sistem Informasi Kepegawaian</h2>
+        <h1>Selamat datang di Sistem Informasi Kepegawaian</h1>
         <hr>
-        <h1>Lihat Data Pegawai berdasarkan NIP</h1>
+        <h2>Lihat Data Pegawai berdasarkan NIP</h2>
         <h4>Masukkan Nomor Induk Pegawai</h4>
         <form th:action="@{/pegawai}" method="GET">
             <input type="text" name="nip" class="form-control"/>
             <button type="submit" class="btn btn-primary">Cari</button>
         </form>
         <hr>
-        <h1>Lihat Detail Jabatan</h1>
+        <h2>Lihat Detail Jabatan</h2>
         <h4>Pilih Jabatan</h4>
         <form th:action="@{/jabatan/view}" method="GET">
             <!-- <input type="text" name="jabatanId" class="form-control"/> -->
