@@ -2,6 +2,7 @@ package com.apap.tugas1apap.service;
 
 import com.apap.tugas1apap.model.jabatanModel;
 import com.apap.tugas1apap.repository.jabatanDB;
+import com.apap.tugas1apap.repository.jabatanPegawaiDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.Optional;
 public class jabatanServiceImpl implements jabatanService {
     @Autowired
     private jabatanDB jabatanDB;
+    @Autowired
+    private jabatanPegawaiDB jabatanPegawaiDB;
 
     public Optional<jabatanModel> getJabatanById(Long id){
         return jabatanDB.findById(id);

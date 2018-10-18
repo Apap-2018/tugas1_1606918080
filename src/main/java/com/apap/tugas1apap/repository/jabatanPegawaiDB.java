@@ -8,4 +8,5 @@ import java.util.Optional;
 @Repository
 public interface jabatanPegawaiDB extends JpaRepository<jabatanPegawaiModel, Long> {
     Optional<List<jabatanPegawaiModel>> findAllByPegawai_Nip(String nip);
+    List<jabatanPegawaiModel> findAllByJabatan_Id(Long id);
 }

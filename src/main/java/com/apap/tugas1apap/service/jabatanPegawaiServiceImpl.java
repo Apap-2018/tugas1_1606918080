@@ -19,4 +19,9 @@ public class jabatanPegawaiServiceImpl implements jabatanPegawaiService {
     public Optional<List<jabatanPegawaiModel>> getJabatanByPegawaiId(String nip) {
         return jabatanPegawaiDB.findAllByPegawai_Nip(nip);
     }
+
+    @Override
+    public List<jabatanPegawaiModel> findAllByJabatan_Id(Long id){
+        return jabatanPegawaiDB.findAllByJabatan_Id(id);
+    }
 }

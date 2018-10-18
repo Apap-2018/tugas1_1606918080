@@ -1,7 +1,9 @@
 package com.apap.tugas1apap.controller;
 
 import com.apap.tugas1apap.model.jabatanModel;
+import com.apap.tugas1apap.model.jabatanPegawaiModel;
 import com.apap.tugas1apap.model.pegawaiModel;
+import com.apap.tugas1apap.service.jabatanPegawaiService;
 import com.apap.tugas1apap.service.jabatanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.export.annotation.ManagedOperationParameter;
@@ -16,6 +18,9 @@ import java.util.Optional;
 public class jabatanController {
     @Autowired
     private jabatanService jabatanService;
+    @Autowired
+    private jabatanPegawaiService jabatanPegawaiService;
+
 
     @GetMapping(value = "/jabatan/tambah")
     private String tambahJabatanGet(Model model){
@@ -57,8 +62,18 @@ public class jabatanController {
     @PostMapping (value = "/jabatan/hapus")
     private String hapusJabatanGet(@ModelAttribute jabatanModel jabatan, Model model){
         System.out.println(jabatan.getId());
-        jabatanService.deleteJabatan(jabatan);
-        return "deleteJabatanSuccess";
+        List<jabatanPegawaiModel> list = jabatanPegawaiService.findAllByJabatan_Id(jabatan.getId());
+        if (list.isEmpty()){
+            System.out.println(jabatan.getNama());
+            jabatanService.deleteJabatan(jabatan);
+            model.addAttribute("jabatan", jabatan);
+            return "deleteJabatanSuccess";
+        }
+        else {
+            System.out.println(jabatan.getNama());
+            model.addAttribute("jabatan",jabatan);
+            return "hapusJabatanWarning";
+        }
     }
 
     @GetMapping(value = "/jabatan/viewall")
