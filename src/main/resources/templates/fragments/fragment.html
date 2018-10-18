@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:method="http://www.w3.org/1999/xhtml">
 
 <head>
 	<head th:fragment="title">
@@ -26,6 +26,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" th:href="@{/jabatan/tambah}" method="GET">Tambah Jabatan</a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Tambah Pegawai</a>
+                </li>
+				<li class="nav-item active">
+					<a class="nav-link" th:href="@{/jabatan/viewall}" method="GET">Lihat Semua Jabatan</a>
+				</li>
 			</ul>
 		</div>
 	</nav>

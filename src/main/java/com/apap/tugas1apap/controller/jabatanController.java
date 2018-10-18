@@ -1,6 +1,7 @@
 package com.apap.tugas1apap.controller;
 
 import com.apap.tugas1apap.model.jabatanModel;
+import com.apap.tugas1apap.model.pegawaiModel;
 import com.apap.tugas1apap.service.jabatanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jmx.export.annotation.ManagedOperationParameter;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -57,6 +59,13 @@ public class jabatanController {
         System.out.println(jabatan.getId());
         jabatanService.deleteJabatan(jabatan);
         return "deleteJabatanSuccess";
+    }
+
+    @GetMapping(value = "/jabatan/viewall")
+    private String viewAll(Model model){
+        List<jabatanModel> semuaJabatan = jabatanService.getAll();
+        model.addAttribute("allJabatan", semuaJabatan);
+        return "viewAllJabatan";
     }
 
 }
