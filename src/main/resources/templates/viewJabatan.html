@@ -26,12 +26,12 @@
 <hr>
 <form th:action="@{'/jabatan/ubah'}" >
     <input type="hidden" name="idJabatan" th:value="${jabatan.id}" />
-    <button value="submit" class="btn btn-primary" style="align-content: center">Ubah</button>
+    <button value="submit" class="btn btn-primary btn-block" style="align-content: center">Ubah</button>
 </form>
 <hr>
 <form th:action="@{'/jabatan/hapus'}" th:method="POST" >
     <input type="hidden" name="id" th:value="${jabatan.id}" />
-    <button value="submit" class="btn btn-danger">Hapus</button>
+    <button value="submit" class="btn btn-danger btn-block">Hapus</button>
 </form>
 <hr>
 </body>

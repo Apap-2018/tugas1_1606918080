@@ -1,5 +1,6 @@
 package com.apap.tugas1apap.service;
 
+import com.apap.tugas1apap.model.instansiModel;
 import com.apap.tugas1apap.model.jabatanModel;
 import com.apap.tugas1apap.model.pegawaiModel;
 import com.apap.tugas1apap.repository.pegawaiDB;
@@ -47,5 +48,10 @@ public class pegawaiServiceImpl implements pegawaiService {
         gajiLengkap += (gajiLengkap * presentaseTunjangan/100);
         System.out.println("Lengkap: " + gajiLengkap);
         return gajiLengkap;
+    }
+
+    @Override
+    public List<pegawaiModel> findByInstansiOrderByTanggalLahirAsc(instansiModel instansi){
+        return pegawaiDB.findByInstansiOrderByTanggalLahirAsc(instansi);
     }
 }

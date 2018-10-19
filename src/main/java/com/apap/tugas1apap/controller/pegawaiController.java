@@ -1,5 +1,6 @@
 package com.apap.tugas1apap.controller;
 
+import com.apap.tugas1apap.model.instansiModel;
 import com.apap.tugas1apap.model.jabatanModel;
 import com.apap.tugas1apap.model.jabatanPegawaiModel;
 import com.apap.tugas1apap.model.pegawaiModel;
@@ -44,6 +45,11 @@ public class pegawaiController {
         model.addAttribute("jabatanPegawai", jabatanPegawai);
         model.addAttribute("title", "Data Pegawai");
         return "viewPegawai";
+    }
+
+    @GetMapping(value = "/pegawai/termuda-tertua")
+    private String viewPegawaiMudaDanTua(@RequestParam(value = "idInstansi") String idInstansi, Model model){
+        return "index";
     }
 
     @GetMapping(value = ("/pegawai/tambah"))

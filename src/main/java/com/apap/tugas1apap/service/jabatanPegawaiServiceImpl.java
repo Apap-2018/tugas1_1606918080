@@ -1,6 +1,7 @@
 package com.apap.tugas1apap.service;
 
 import com.apap.tugas1apap.model.jabatanPegawaiModel;
+import com.apap.tugas1apap.repository.instansiDB;
 import com.apap.tugas1apap.repository.jabatanPegawaiDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
