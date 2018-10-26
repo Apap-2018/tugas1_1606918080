@@ -35,6 +35,17 @@ public class jabatanModel implements Serializable {
             mappedBy = "jabatanList")
     private List<pegawaiModel> pegawaiList;
 
+    @OneToMany(mappedBy = "jabatan", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<jabatanPegawaiModel> jabatanPegawaiList;
+
+    public List<jabatanPegawaiModel> getJabatanPegawaiList() {
+        return jabatanPegawaiList;
+    }
+
+    public void setJabatanPegawaiList(List<jabatanPegawaiModel> jabatanPegawaiList) {
+        this.jabatanPegawaiList = jabatanPegawaiList;
+    }
+
     public long getId() {
         return id;
     }

@@ -9,4 +9,6 @@ public interface instansiService {
     Optional<instansiModel> getInstansiById(long idInstansi);
 
     List<instansiModel> getAllInstansi();
+
+    instansiModel findById(Long id);
 }

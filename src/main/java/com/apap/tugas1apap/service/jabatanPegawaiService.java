@@ -14,4 +14,5 @@ import java.util.Optional;
 public interface jabatanPegawaiService {
     Optional<List<jabatanPegawaiModel>> getJabatanByPegawaiId(String nip);
     List<jabatanPegawaiModel> findAllByJabatan_Id(Long id);
+    void add(jabatanPegawaiModel jabatanPegawai);
 }

@@ -5,10 +5,13 @@ import com.apap.tugas1apap.model.pegawaiModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 @Repository
-public interface    pegawaiDB extends JpaRepository<pegawaiModel, Long> {
+public interface pegawaiDB extends JpaRepository<pegawaiModel, Long> {
     pegawaiModel findByNip(String nip);
     List <pegawaiModel> findByInstansiOrderByTanggalLahirAsc(instansiModel instansi);
+    List<pegawaiModel> findByTanggalLahirAndTahunMasukAndInstansi(Date tanggalLahir, String tahunMasuk, instansiModel instansi);
+    List<pegawaiModel> findByInstansi(instansiModel instansi);
 }

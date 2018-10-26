@@ -3,18 +3,7 @@ package com.apap.tugas1apap.model;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
@@ -58,6 +47,9 @@ public class pegawaiModel implements Serializable {
     @JsonIgnore
     private instansiModel instansi;
 
+    @OneToMany(mappedBy = "pegawai", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<jabatanPegawaiModel> jabatanPegawaiList;
+
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
@@ -67,6 +59,22 @@ public class pegawaiModel implements Serializable {
             joinColumns = { @JoinColumn(name = "id_pegawai") },
             inverseJoinColumns = { @JoinColumn(name = "id_jabatan") })
     private List<jabatanModel> jabatanList;
+
+    public List<jabatanPegawaiModel> getJabatanPegawaiList() {
+        return jabatanPegawaiList;
+    }
+
+    public void setJabatanPegawaiList(List<jabatanPegawaiModel> jabatanPegawaiList) {
+        this.jabatanPegawaiList = jabatanPegawaiList;
+    }
+
+    public List<jabatanModel> getJabatanList() {
+        return jabatanList;
+    }
+
+    public void setJabatanList(List<jabatanModel> jabatanList) {
+        this.jabatanList = jabatanList;
+    }
 
     public long getId() {
         return id;
@@ -124,11 +132,4 @@ public class pegawaiModel implements Serializable {
         this.instansi = instansi;
     }
 
-    public List<jabatanModel> getJabatanList() {
-        return jabatanList;
-    }
-
-    public void setJabatanList(List<jabatanModel> jabatanList) {
-        this.jabatanList = jabatanList;
-    }
 }

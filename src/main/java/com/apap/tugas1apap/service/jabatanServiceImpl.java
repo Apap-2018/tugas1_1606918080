@@ -42,4 +42,10 @@ public class jabatanServiceImpl implements jabatanService {
     public List<jabatanModel> getAll(){
         return jabatanDB.findAll();
     }
+
+    @Override
+    public jabatanModel findById(Long id) {
+        // TODO Auto-generated method stub
+        return jabatanDB.findById(id).get();
+    }
 }
